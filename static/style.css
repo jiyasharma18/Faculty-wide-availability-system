@@ -1,0 +1,119 @@
+/* Background */
+body {
+    font-family: 'Segoe UI', Arial;
+    background: linear-gradient(135deg, #eef2f7, #dfe9f3);
+    margin: 0;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    background: linear-gradient(90deg, #002147, #004080);
+    color: white;
+    padding: 25px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.logo {
+    width: 300px;
+    display: block;
+    margin: 0 auto 10px;
+}
+/* Container */
+.container {
+    width: 85%;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Filters */
+.filters {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.filters input, .filters select {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.filters input:focus, .filters select:focus {
+    border-color: #004080;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: #004080;
+    color: white;
+    padding: 12px;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #f7f9fc;
+}
+
+tr:hover {
+    background: #eaf2ff;
+    transition: 0.3s;
+}
+
+/* Status */
+.Present {
+    color: #1a7f37;
+    font-weight: bold;
+}
+
+.Not\ Present {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    margin: 10px 8px;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, #004080, #0066cc);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #0066cc, #004080);
+    transform: scale(1.05);
+}
+
+/* Forms */
+form input, form select {
+    width: 60%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+form input:focus {
+    border-color: #004080;
+}

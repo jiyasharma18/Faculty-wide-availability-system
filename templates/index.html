@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Availability</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script>
+        function filterTable() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let dept = document.getElementById("deptFilter").value;
+            let presentOnly = document.getElementById("presentOnly").checked;
+
+            let rows = document.querySelectorAll("table tbody tr");
+
+            rows.forEach(row => {
+                let name = row.children[0].innerText.toLowerCase();
+                let department = row.children[1].innerText;
+                let status = row.children[3].innerText;
+
+                let show = true;
+
+                if (!name.includes(input)) show = false;
+                if (dept !== "All" && department !== dept) show = false;
+                if (presentOnly && status !== "Present") show = false;
+
+                row.style.display = show ? "" : "none";
+            });
+        }
+    </script>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <img src="/static/logo.png" class="logo">
+    <h1>Faculty Availability System</h1>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- FILTERS -->
+    <div class="filters">
+        <input type="text" id="search" placeholder="Search faculty..." onkeyup="filterTable()">
+
+        <select id="deptFilter" onchange="filterTable()">
+            <option value="All">All Departments</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="IT">IT</option>
+            <option value="MECH">MECH</option>
+        </select>
+
+        <label>
+            <input type="checkbox" id="presentOnly" onchange="filterTable()">
+            Show Present Only
+        </label>
+    </div>
+
+    <!-- TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Cabin</th>
+                <th>Status</th>
+                <th>Last Seen</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for f in faculty %}
+            <tr>
+                <td>{{ f[1] }}</td>
+                <td>{{ f[2] }}</td>
+                <td>{{ f[3] }}</td>
+                <td class="{{ f[4] }}">{{ f[4] }}</td>
+                <td>{{ f[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- BUTTONS -->
+    <a href="/login" class="btn">Faculty Login</a>
+    <a href="/add" class="btn">Add Faculty</a>
+
+</div>
+
+</body>
+</html>
